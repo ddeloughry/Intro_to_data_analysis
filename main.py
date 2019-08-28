@@ -1,6 +1,7 @@
 from collections import defaultdict
 from datetime import datetime
 
+import matplotlib.pyplot as plt
 import numpy
 import unicodecsv
 
@@ -86,13 +87,12 @@ def get_avg(paid_students_first_week, column):
 
 # ------------------------------
 # FUNCTION: visualise_column
-#
+# Visualise data on a histogram
 # ------------------------------
 def visualise_column(dataset, column_name, title):
     column = []
     for each in dataset:
         column.append(each[column_name])
-    import matplotlib.pyplot as plt
     plt.hist(column, bins=8)
     plt.title(title)
     plt.xlabel(column_name)
@@ -223,10 +223,8 @@ def my_main():
     # Visualising data
     visualise_column(passed_students, "total_minutes_visited", "Passed students total minutes visited")
     visualise_column(failed_students, "total_minutes_visited", "Failed students total minutes visited")
-
     visualise_column(passed_students, "attended", "Passed students attendance")
     visualise_column(failed_students, "attended", "Failed students attendance")
-
     visualise_column(passed_students, "lessons_completed", "Passed students lessons completed")
     visualise_column(failed_students, "lessons_completed", "Failed students lessons completed")
     pass
